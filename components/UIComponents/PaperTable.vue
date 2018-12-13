@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{patient}}
     <div class="header">
       <slot name="header">
         <h4 class="title">{{title}}</h4>
@@ -9,11 +10,21 @@
     <div class="content table-responsive table-full-width">
       <table class="table" :class="tableClass">
         <thead>
-          <th v-for="column in columns" :key="column">{{column}}</th>
+          <th v-for="column in columns" :key="column" >{{column}}</th>
         </thead>
         <tbody>
           <tr v-for="(item,index) in data" :key="index">
             <td v-for="column in columns" :key="column" v-if="hasValue(item, column)">{{itemValue(item, column)}}</td>
+            <td style="margin-right: 100px;" v-if="patient">
+              <button type="submit" class="btn btn-success btn-fill btn-wd" @click="$router.push('/patient-profile')">
+                View Profile
+              </button>
+            </td>
+            <td style="margin-right: 100px;" v-if="!patient">
+              <button type="submit" class="btn btn-success btn-fill btn-wd" @click="$router.push('/doctor-profile')">
+                View Profile
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -24,6 +35,7 @@
   export default {
     props: {
       columns: Array,
+      patient: Boolean,
       data: Array,
       type: {
         type: String, // striped | hover

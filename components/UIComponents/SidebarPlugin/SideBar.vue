@@ -8,7 +8,7 @@
           <div class="logo-img">
             <img src="/img/vue-logo.png" alt="">
           </div>
-          {{title}}
+          Hospital - Admin
         </a>
       </div>
 

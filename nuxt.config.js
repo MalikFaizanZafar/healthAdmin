@@ -8,7 +8,7 @@ module.exports = {
     base: routerBase
   },
   head: {
-    title: 'vue-paper-dashboard-nuxt',
+    title: 'Hosptial Admin',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

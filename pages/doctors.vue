@@ -1,8 +1,8 @@
 <template>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <div class="card">
-          <paper-table title="Patients" sub-title="List of All Patients" :data="table1.data" :columns="table1.columns" patient="true">
+        <div class="card card-plain">
+          <paper-table type="hover" title="Doctors" sub-title="List of All Doctors" :data="table2.data" :columns="table2.columns" patient="false">
 
           </paper-table>
         </div>
@@ -12,35 +12,30 @@
 </template>
 <script>
   import PaperTable from '~/components/UIComponents/PaperTable.vue'
-  const tableColumns = ['Id', 'Name', 'Doctor', 'City', 'Actions']
+  const tableColumns = ['Id', 'Name', 'City', 'Actions']
   const tableData = [{
     id: 1,
     name: 'Dakota Rice',
-    doctor: 'Niger',
     city: 'Oud-Turnhout'
   },
   {
     id: 2,
     name: 'Minerva Hooper',
-    doctor: 'Curaçao',
     city: 'Sinaai-Waas'
   },
   {
     id: 3,
     name: 'Sage Rodriguez',
-    doctor: 'Netherlands',
     city: 'Baileux'
   },
   {
     id: 4,
     name: 'Philip Chaney',
-    doctor: 'Korea, South',
     city: 'Overland Park'
   },
   {
     id: 5,
     name: 'Doris Greene',
-    doctor: 'Malawi',
     city: 'Feldkirchen in Kärnten'
   }]
 

@@ -5,15 +5,19 @@
           <i class="ti-panel"></i>
           <p>Dashboard</p>
         </sidebar-link>
-        <sidebar-link to="/userprofile">
+        <!-- <sidebar-link to="/userprofile">
           <i class="ti-user"></i>
           <p>User Profile</p>
-        </sidebar-link>
+        </sidebar-link> -->
         <sidebar-link to="/tablelist">
           <i class="ti-view-list-alt"></i>
-          <p>Table list</p>
+          <p>Patients</p>
         </sidebar-link>
-        <sidebar-link to="/typography">
+        <sidebar-link to="/doctors">
+          <i class="ti-view-list-alt"></i>
+          <p>Doctors</p>
+        </sidebar-link>
+        <!-- <sidebar-link to="/typography">
           <i class="ti-text"></i>
           <p>Typography</p>
         </sidebar-link>
@@ -28,7 +32,7 @@
         <sidebar-link to="/notifications">
           <i class="ti-bell"></i>
           <p>Notifications</p>
-        </sidebar-link>
+        </sidebar-link> -->
       </side-bar>
     <no-ssr>
       <notifications>

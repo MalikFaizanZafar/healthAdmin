@@ -22,7 +22,7 @@
     <!--Charts-->
       <div class="row">
 
-        <div class="col-xs-12">
+        <!-- <div class="col-xs-12">
           <chart-card :chart-data="usersChart.data" :chart-options="usersChart.options">
             <h4 class="title" slot="title">Users behavior</h4>
             <span slot="subTitle"> 24 Hours performance</span>
@@ -34,31 +34,31 @@
               <i class="fa fa-circle text-warning"></i> Click Second Time
             </div>
           </chart-card>
-        </div>
+        </div> -->
 
         <div class="col-md-6 col-xs-12">
           <chart-card :chart-data="preferencesChart.data" chart-type="Pie">
-            <h4 class="title" slot="title">Email Statistics</h4>
-            <span slot="subTitle"> Last campaign performance</span>
-            <span slot="footer">
-                <i class="ti-timer"></i> Campaign set 2 days ago</span>
+            <h4 class="title" slot="title">Cities Statistics</h4>
+            <span slot="subTitle"> Patients Distribution of Cities</span>
+            <!-- <span slot="footer">
+                <i class="ti-timer"></i> Campaign set 2 days ago</span> -->
             <div slot="legend">
-              <i class="fa fa-circle text-info"></i> Open
-              <i class="fa fa-circle text-danger"></i> Bounce
-              <i class="fa fa-circle text-warning"></i> Unsubscribe
+              <i class="fa fa-circle text-info"></i> Lahore
+              <i class="fa fa-circle text-danger"></i> Islamabad
+              <i class="fa fa-circle text-warning"></i> Karachi
             </div>
           </chart-card>
         </div>
 
         <div class="col-md-6 col-xs-12">
           <chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">
-            <h4 class="title" slot="title">2015 Sales</h4>
-            <span slot="subTitle"> All products including Taxes</span>
-            <span slot="footer">
-                <i class="ti-check"></i> Data information certified</span>
+            <h4 class="title" slot="title">Patients</h4>
+            <span slot="subTitle">  Growth Over the Months</span>
+            <!-- <span slot="footer">
+                <i class="ti-check"></i> Data information certified</span> -->
             <div slot="legend">
-              <i class="fa fa-circle text-info"></i> Tesla Model S
-              <i class="fa fa-circle text-warning"></i> BMW 5 Series
+              <i class="fa fa-circle text-info"></i> Patients
+              <!-- <i class="fa fa-circle text-warning"></i> BMW 5 Series -->
             </div>
           </chart-card>
         </div>
@@ -88,34 +88,34 @@
           {
             type: 'warning',
             icon: 'ti-server',
-            title: 'Capacity',
-            value: '105GB',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
+            title: 'Patients',
+            value: '100'
+            // footerText: 'Updated now',
+            // footerIcon: 'ti-reload'
           },
           {
             type: 'success',
             icon: 'ti-wallet',
-            title: 'Revenue',
-            value: '$1,345',
-            footerText: 'Last day',
-            footerIcon: 'ti-calendar'
+            title: 'Doctors',
+            value: '10'
+            // footerText: 'Last day',
+            // footerIcon: 'ti-calendar'
           },
           {
             type: 'danger',
             icon: 'ti-pulse',
-            title: 'Errors',
-            value: '23',
-            footerText: 'In the last hour',
-            footerIcon: 'ti-timer'
+            title: 'Revenue',
+            value: '1,000,000'
+            // footerText: 'In the last hour',
+            // footerIcon: 'ti-timer'
           },
           {
             type: 'info',
             icon: 'ti-twitter-alt',
             title: 'Followers',
             value: '+45',
-            footerText: 'Updated now',
-            footerIcon: 'ti-reload'
+            // footerText: 'Updated now',
+            // footerIcon: 'ti-reload'
           }
         ],
         usersChart: {
@@ -146,8 +146,8 @@
           data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             series: [
-              [542, 543, 520, 680, 653, 753, 326, 434, 568, 610, 756, 895],
-              [230, 293, 380, 480, 503, 553, 600, 664, 698, 710, 736, 795]
+              // [42, 53, 62, 78, 59, 73, 68, 84, 68, 910, 76, 89]
+              [200, 293, 380, 480, 503, 513, 300, 664, 698, 710, 736, 395]
             ]
           },
           options: {
