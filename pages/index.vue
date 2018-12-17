@@ -2,8 +2,9 @@
   <div>
 
     <!--Stats cards-->
+
     <div class="row">
-      <div class="col-lg-3 col-sm-6" v-for="stats in statsCards" :key="stats.title">
+      <div class="col-lg-4 col-sm-6" v-for="stats in statsCards" :key="stats.title">
         <stats-card>
           <div class="icon-big text-center" :class="`icon-${stats.type}`" slot="header">
             <i :class="stats.icon"></i>
@@ -19,6 +20,20 @@
       </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">
+            <h4 class="title" slot="title">Revenue</h4>
+            <span slot="subTitle">  Over the Months</span>
+            <!-- <span slot="footer">
+                <i class="ti-check"></i> Data information certified</span> -->
+            <div slot="legend">
+              <i class="fa fa-circle text-info"></i> Revenue
+              <!-- <i class="fa fa-circle text-warning"></i> BMW 5 Series -->
+            </div>
+          </chart-card>
+        </div>
+    </div>
     <!--Charts-->
       <div class="row">
 
@@ -108,15 +123,15 @@
             value: '1,000,000'
             // footerText: 'In the last hour',
             // footerIcon: 'ti-timer'
-          },
-          {
-            type: 'info',
-            icon: 'ti-twitter-alt',
-            title: 'Followers',
-            value: '+45',
-            // footerText: 'Updated now',
-            // footerIcon: 'ti-reload'
           }
+          // {
+          //   type: 'info',
+          //   icon: 'ti-twitter-alt',
+          //   title: 'Followers',
+          //   value: '+45',
+          //   // footerText: 'Updated now',
+          //   // footerIcon: 'ti-reload'
+          // }
         ],
         usersChart: {
           data: {
