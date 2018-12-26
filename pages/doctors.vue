@@ -1,11 +1,5 @@
 <template>
     <div class="row">
-      <!-- {{doctorsArranged}}
-      {{arrayLoadedDoctors}} -->
-      <!-- <tr v-for="(ld,i) in loadedDoctors" :key="i">
-        {{i}} : {{ld}} 
-        <br> <br>
-      </tr> -->
       <div class="col-md-8 col-md-offset-2">
         <div class="card card-plain">
           <doctorstable type="hover" title="Doctors" sub-title="List of All Doctors" :data="doctorsArranged" :columns="table2.columns">
