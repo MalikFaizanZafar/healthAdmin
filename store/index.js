@@ -1,8 +1,10 @@
 import { StoreDB, Storage, DB} from '~/plugins/firebase.js'
 import Vue from 'vue'
+// import { stat } from 'fs';
 export const strict = false
 export const state = () => ({
   doctors:[],
+  patients:[],
   resolvedReports:[]
 })
 
@@ -12,6 +14,9 @@ export const mutations = {
   },
   mutationLoadResolvedReports(state, payload){
     state.resolvedReports = payload
+  },
+  mutationLoadPatients(state, payload){
+    state.patients = payload
   }
 }
 export const actions = {
@@ -26,6 +31,12 @@ export const actions = {
       // console.log('resolvedR has : ', resolvedR)
       commit('mutationLoadResolvedReports', resolvedR.val())
     })
+  },
+  actionLoadPatients({commit}, payload){
+    DB.ref('Users').once('value').then(users => {
+      console.log('users has : ', users)
+      commit('mutationLoadPatients', users.val())
+    })
   }
 }
 
@@ -38,5 +49,8 @@ export const getters = {
   },
   doctorsGetter(state){
     return state.doctors
+  },
+  getPatients(state){
+    return state.patients
   }
 }

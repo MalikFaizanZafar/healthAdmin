@@ -14,13 +14,8 @@
         <tbody>
           <tr v-for="(item,index) in data" :key="index">
             <td v-for="column in columns" :key="column" v-if="hasValue(item, column)">{{itemValue(item, column)}}</td>
-            <td style="margin-right: 100px;" v-if="patient">
+            <td style="margin-left: -100px;">
               <button type="submit" class="btn btn-success btn-fill btn-wd" @click="$router.push('/patient-profile')">
-                View Profile
-              </button>
-            </td>
-            <td style="margin-right: 100px;" v-if="!patient">
-              <button type="submit" class="btn btn-success btn-fill btn-wd" @click="$router.push('/doctor-profile')">
                 View Profile
               </button>
             </td>

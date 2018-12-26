@@ -1,8 +1,9 @@
 <template>
     <div class="row">
+      <!-- {{tableData}} -->
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
-          <paper-table title="Patients" sub-title="List of All Patients" :data="table1.data" :columns="table1.columns" patient="true">
+          <paper-table title="Patients" sub-title="List of All Patients" :data="tableData" :columns="table1.columns">
 
           </paper-table>
         </div>
@@ -12,37 +13,8 @@
 </template>
 <script>
   import PaperTable from '~/components/UIComponents/PaperTable.vue'
-  const tableColumns = ['Id', 'Name', 'Doctor', 'City', 'Actions']
-  const tableData = [{
-    id: 1,
-    name: 'Dakota Rice',
-    doctor: 'Niger',
-    city: 'Oud-Turnhout'
-  },
-  {
-    id: 2,
-    name: 'Minerva Hooper',
-    doctor: 'Curaçao',
-    city: 'Sinaai-Waas'
-  },
-  {
-    id: 3,
-    name: 'Sage Rodriguez',
-    doctor: 'Netherlands',
-    city: 'Baileux'
-  },
-  {
-    id: 4,
-    name: 'Philip Chaney',
-    doctor: 'Korea, South',
-    city: 'Overland Park'
-  },
-  {
-    id: 5,
-    name: 'Doris Greene',
-    doctor: 'Malawi',
-    city: 'Feldkirchen in Kärnten'
-  }]
+  const tableColumns = ['No', 'Name', 'Phone', 'Email']
+  const tableData = []
 
   export default {
     layout: "dashboard",
@@ -63,6 +35,27 @@
           columns: [...tableColumns],
           data: [...tableData]
         }
+      }
+    },
+    async fetch({store}){
+      store.dispatch('actionLoadPatients')
+    },
+    computed: {
+      loadedPatients(){
+        return Object.values(this.$store.getters.getPatients)
+      },
+      tableData(){
+        let patients = []
+        let data = Object.values(this.loadedPatients)
+        data.map((dat,i) => {
+          patients.push({
+            no: i+1,
+            name: dat.name,
+            email: dat.email,
+            phone: dat.phone
+          })
+        })
+        return patients
       }
     }
   }
