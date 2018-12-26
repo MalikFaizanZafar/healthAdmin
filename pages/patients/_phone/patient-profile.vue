@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="row">
-      <!-- {{loadedNewRequests}} -->
+      <!-- {{loadedNewRequests}}
+      {{getPatientData}} -->
       <!-- <h5 v-for="(item,i) in loadedNewRequests" :key="i">
         {{item}}
       </h5> -->
@@ -11,7 +12,7 @@
       <!-- {{getPatientData}} -->
         <div class="col-md-6 col-xs-12 col-md-offset-3">
           <chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">
-            <h4 class="title" slot="title">Readings over Time</h4>
+            <h4 class="title" slot="title">BMP / SPO Values over Time</h4>
             <!-- <span slot="subTitle"> All products including Taxes</span> -->
             <!-- <span slot="footer">
                 <i class="ti-check"></i> Data information certified</span> -->
@@ -59,12 +60,13 @@ import ChartCard from '~/components/UIComponents/Cards/ChartCard.vue'
         },
     }
   },
+  async fetch({store}){
+  store.dispatch('actionLoadNewRequests')
+  },
   created(){
     this.patientPhone = this.$route.params.phone
     console.log('patientEmail has : ', this.patientPhone)
-  },
-  async fetch({store}){
-  store.dispatch('actionLoadNewRequests')
+    this.$store.dispatch('actionLoadNewRequests')
   },
   computed: {
     loadedNewRequests(){

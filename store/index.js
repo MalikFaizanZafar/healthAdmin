@@ -24,27 +24,27 @@ export const mutations = {
   }
 }
 export const actions = {
-  actionLoadDoctors({commit}, payload){
+  actionLoadDoctors({commit}){
     DB.ref('Doctors').once('value').then(doctors => {
       // console.log('doctors has : ', doctors.val())
       commit('mutationLoadingDoctors', doctors.val())
     })
   },
-  actionLoadResolvedReports({commit}, payload){
+  actionLoadResolvedReports({commit}){
     DB.ref('Ressolved').once('value').then(resolvedR => {
-      // console.log('resolvedR has : ', resolvedR)
+      console.log('resolvedR has : ', resolvedR)
       commit('mutationLoadResolvedReports', resolvedR.val())
     })
   },
-  actionLoadPatients({commit}, payload){
+  actionLoadPatients({commit}){
     DB.ref('Users').once('value').then(users => {
-      // console.log('users has : ', users)
+      console.log('users has : ', users)
       commit('mutationLoadPatients', users.val())
     })
   },
-  actionLoadNewRequests({commit}, payload){
+  actionLoadNewRequests({commit}){
     DB.ref('NewRequest').once('value').then(newRequests => {
-      // console.log('newRequests has : ', newRequests)
+      console.log('newRequests has : ', newRequests)
       commit('mutationLoadNewRequests', newRequests.val())
     })
   }
