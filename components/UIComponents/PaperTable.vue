@@ -15,7 +15,7 @@
           <tr v-for="(item,index) in data" :key="index">
             <td v-for="column in columns" :key="column" v-if="hasValue(item, column)">{{itemValue(item, column)}}</td>
             <td style="margin-left: -100px;">
-              <button type="submit" class="btn btn-success btn-fill btn-wd" @click="$router.push('/patient-profile')">
+              <button type="submit" class="btn btn-success btn-fill btn-wd" @click="toPatientProfile(item.phone)">
                 View Profile
               </button>
             </td>
@@ -56,6 +56,9 @@
       },
       itemValue (item, column) {
         return item[column.toLowerCase()]
+      },
+      toPatientProfile(phone){
+        this.$router.push(`patients/${phone}/patient-profile`)
       }
     }
   }

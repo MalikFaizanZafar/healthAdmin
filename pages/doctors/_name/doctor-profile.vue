@@ -64,7 +64,7 @@ import doctorsResolvedReports from '~/components/UIComponents/doctorsResolvedRep
     },
   created(){
       this.doctorName = this.$route.params.name
-      // console.log('doctorName has : ', this.doctorName)
+      console.log('doctorName has : ', this.doctorName)
     }
 }
 </script>

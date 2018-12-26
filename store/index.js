@@ -5,6 +5,7 @@ export const strict = false
 export const state = () => ({
   doctors:[],
   patients:[],
+  newRequests: [],
   resolvedReports:[]
 })
 
@@ -17,6 +18,9 @@ export const mutations = {
   },
   mutationLoadPatients(state, payload){
     state.patients = payload
+  },
+  mutationLoadNewRequests(state, payload){
+    state.newRequests = payload
   }
 }
 export const actions = {
@@ -34,8 +38,14 @@ export const actions = {
   },
   actionLoadPatients({commit}, payload){
     DB.ref('Users').once('value').then(users => {
-      console.log('users has : ', users)
+      // console.log('users has : ', users)
       commit('mutationLoadPatients', users.val())
+    })
+  },
+  actionLoadNewRequests({commit}, payload){
+    DB.ref('NewRequest').once('value').then(newRequests => {
+      // console.log('newRequests has : ', newRequests)
+      commit('mutationLoadNewRequests', newRequests.val())
     })
   }
 }
@@ -52,5 +62,8 @@ export const getters = {
   },
   getPatients(state){
     return state.patients
+  },
+  getNewRequests(state){
+    return state.newRequests
   }
 }
