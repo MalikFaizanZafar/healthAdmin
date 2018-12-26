@@ -6,15 +6,15 @@ export const state = () => ({
 })
 
 export const mutations = {
-  mutationAddingDoctors(state, payload){
+  mutationLoadingDoctors(state, payload){
     state.doctors = payload
   }
 }
 export const actions = {
-  actionGetDoctors({commit}, payload){
+  actionLoadDoctors({commit}, payload){
     DB.ref('Doctors').once('value').then(doctors => {
       // console.log('doctors has : ', doctors.val())
-      commit('mutationAddingDoctors', doctors.val())
+      commit('mutationLoadingDoctors', doctors.val())
     })
   }
 }

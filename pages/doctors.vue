@@ -1,14 +1,14 @@
 <template>
     <div class="row">
-      <!-- {{loadedDoctors}} -->
-      <tr v-for="(ld,i) in loadedDoctors" :key="i">
-        {{ld}}
+      <!-- {{doctorsArranged}}
+      {{arrayLoadedDoctors}} -->
+      <!-- <tr v-for="(ld,i) in loadedDoctors" :key="i">
+        {{i}} : {{ld}} 
         <br> <br>
-      </tr>
+      </tr> -->
       <div class="col-md-8 col-md-offset-2">
         <div class="card card-plain">
-          <doctorstable type="hover" title="Doctors" sub-title="List of All Doctors" :data="table2.data" :columns="table2.columns">
-
+          <doctorstable type="hover" title="Doctors" sub-title="List of All Doctors" :data="doctorsArranged" :columns="table2.columns">
           </doctorstable>
         </div>
       </div>
@@ -18,7 +18,7 @@
 <script>
   import PaperTable from '~/components/UIComponents/PaperTable.vue'
   import doctorstable from '~/components/UIComponents/doctorstable.vue'
-  const tableColumns = ['Id', 'Name', 'City', 'Actions']
+  const tableColumns = ['Name','Email', 'Phone','Experince']
   const tableData = [{
     id: 1,
     name: 'Dakota Rice',
@@ -67,22 +67,26 @@
       }
     },
     async fetch({store}){
-      store.dispatch('actionGetDoctors')
+      store.dispatch('actionLoadDoctors')
     },
     computed: {
       loadedDoctors(){
         return Object.values(this.$store.getters.doctorsGetter)
       },
-      doctorsList(){
+      arrayLoadedDoctors(){
+        return Object.values(this.loadedDoctors)
+      },
+      doctorsArranged(){
         let doctors = []
-        this.loadedDoctors.map(lds => {
-          let obj = {
-            name: `${lds.loadedDoctors} ${lds.loadedDoctors}`,
-            email: lds.email,
-            experience: lds.loadedDoctors
-          }
-          doctors.push(doctors)
-          console.log('doctors has : ', doctors)
+        // // let data = Object.values(this.arrayLoadedDoctors)
+        // console.log('this.arrayLoadedDoctors has : ', this.arrayLoadedDoctors)
+        this.arrayLoadedDoctors.map(ald => {
+          doctors.push({
+            name: `${ald.FirstName} ${ald.LastName}`,
+            email: ald.Email,
+            phone: ald.PhoneNumber,
+            experince: ald.Experince
+          })
         })
         return doctors
       }
